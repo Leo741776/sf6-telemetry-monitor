@@ -13,9 +13,9 @@ A C++ embedded Linux application that monitors Street Fighter 6 UDP traffic duri
 
 This project consists of three repositories:
 
-- **[sf6-telemetry-monitor]()** — C++ application running on the BeagleBone Black that processes UDP traffic, calculates network statistics, and updates the ST7735 display.
-- **[sf6-packet-forwarder]()** — Ubuntu application that captures network traffic and forwards packets to the BBB over USB networking.
-- **[sf6-buildroot]()** — Custom Buildroot external tree containing the device tree, package configuration, and automatic startup script.
+- **[sf6-telemetry-monitor](https://github.com/Leo741776/sf6-telemetry-monitor)** — C++ application running on the BeagleBone Black that processes UDP traffic, calculates network statistics, and updates the ST7735 display.
+- **[sf6-packet-forwarder](https://github.com/Leo741776/sf6-packet-forwarder)** — Ubuntu application that captures network traffic and forwards packets to the BBB over USB networking.
+- **[sf6-buildroot](https://github.com/Leo741776/sf6-buildroot)** — Custom Buildroot external tree containing the device tree, package configuration, and automatic startup script.
 
 ## Architecture
 
