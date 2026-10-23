@@ -5,7 +5,7 @@ A C++ embedded Linux application that monitors Street Fighter 6 UDP traffic duri
 ## Overview
 
 - Parses Ethernet, IPv4, and UDP packets forwarded from a host machine running Ubuntu.
-- Automatically discovers a candidate UDP flow and tracks incoming/outgoing packet rates, throughput, and inter-packet jitter.
+- Automatically discovers UDP flow from online matches and tracks incoming/outgoing packet rates, throughput, and inter-packet jitter.
 - Updates the ST7735 dashboard every 500 ms on a separate thread while retaining five-second terminal reports.
 - Uses hardware SPI0 (`/dev/spidev0.0`) and GPIO character devices for display control.
 
