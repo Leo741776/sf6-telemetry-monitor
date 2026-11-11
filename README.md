@@ -2,6 +2,14 @@
 
 A C++ embedded Linux application that monitors Street Fighter 6 UDP traffic during online matches and displays live network statistics on an ST7735 display connected to a BeagleBone Black. The application runs on a custom Buildroot Linux image and starts automatically at boot.
 
+## Demo
+
+<p align="center">
+    <img src="media/1.jpeg" width="33%">
+    <img src="media/2.jpeg" width="33%">
+    <img src="media/demo.gif" width="33%">
+</p>
+
 ## Overview
 
 - Parses Ethernet, IPv4, and UDP packets forwarded from a host machine running Ubuntu.
@@ -106,11 +114,3 @@ sudo ./build/sf6-packet-forwarder
 ```
 
 The ST7735 dashboard automatically updates with live network statistics when a matching UDP flow is detected.
-
-## Demo
-
-<p align="center">
-    <img src="media/1.jpeg" width="33%">
-    <img src="media/2.jpeg" width="33%">
-    <img src="media/demo.gif" width="33%">
-</p>
