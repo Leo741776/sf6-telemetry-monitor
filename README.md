@@ -1,12 +1,12 @@
 # SF6 Network Telemetry Monitor
 
-A C++ embedded Linux application that monitors Street Fighter 6 UDP traffic during online matches and displays live network statistics on an ST7735 TFT connected to a BeagleBone Black. The application runs on a custom Buildroot Linux image and starts automatically at boot.
+A C++ embedded Linux application that monitors Street Fighter 6 UDP traffic during online matches and displays live network statistics on an ST7735 display connected to a BeagleBone Black. The application runs on a custom Buildroot Linux image and starts automatically at boot.
 
 ## Overview
 
 - Parses Ethernet, IPv4, and UDP packets forwarded from a host machine running Ubuntu.
-- Automatically discovers UDP flow from online matches and tracks incoming/outgoing packet rates, throughput, and inter-packet jitter.
-- Updates the ST7735 dashboard every 500 ms on a separate thread while retaining five-second terminal reports.
+- Automatically discovers UDP flows from online matches and tracks incoming and outgoing packet rates, throughput, and jitter.
+- Updates the ST7735 dashboard every 500 ms on a separate thread while continuing to generate terminal reports every five seconds.
 - Uses hardware SPI0 (`/dev/spidev0.0`) and GPIO character devices for display control.
 
 ## Repositories
@@ -14,7 +14,7 @@ A C++ embedded Linux application that monitors Street Fighter 6 UDP traffic duri
 This project consists of three repositories:
 
 - **[sf6-telemetry-monitor](https://github.com/Leo741776/sf6-telemetry-monitor)** — C++ application running on the BeagleBone Black that processes UDP traffic, calculates network statistics, and updates the ST7735 display.
-- **[sf6-packet-forwarder](https://github.com/Leo741776/sf6-packet-forwarder)** — Ubuntu application that captures network traffic and forwards packets to the BBB over USB networking.
+- **[sf6-packet-forwarder](https://github.com/Leo741776/sf6-packet-forwarder)** — Ubuntu application that captures network traffic from a live match and forwards packets to the BBB over USB networking.
 - **[sf6-buildroot](https://github.com/Leo741776/sf6-buildroot)** — Custom Buildroot external tree containing the device tree, package configuration, and automatic startup script.
 
 ## Architecture
@@ -98,7 +98,7 @@ Replace the IP address with the local IP address of the machine running SF6.
 
 ### 4. Start the Packet Forwarder
 
-On the Ubuntu host running SF6, launch the separate `sf6-packet-forwarder` application (available in a separate GitHub repository) and start an online match:
+On the Ubuntu host running SF6, launch the separate `sf6-packet-forwarder` application (linked above) and start an online match:
 
 ```bash
 cd ~/projects/sf6-packet-forwarder
